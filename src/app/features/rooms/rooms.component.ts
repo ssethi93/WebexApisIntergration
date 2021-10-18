@@ -13,7 +13,6 @@ export class RoomsComponent implements OnInit {
   constructor(private route: ActivatedRoute,private servApiL: WebexApisService,private service: LoginService,  @Inject('tokenFac') private tokenfactory) { }
 
   ngOnInit(): void {
-    debugger;
     this.route.queryParamMap.subscribe(params => {
       if (params.has('code')) {
         this.service.checkLocalStorageToken(params.get('code')).subscribe(data => {
