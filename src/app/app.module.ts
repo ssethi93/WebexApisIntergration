@@ -8,10 +8,6 @@ import { HttpInterceptorService } from '../app/common-services/http-interceptor.
 import { RoomsComponent } from './features/rooms/rooms.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmDialogueComponent } from './common/confirm-dialogue/confirm-dialogue.component';
-import { TeamsComponent } from './features/teams/teams.component';
-import { RoomTabsComponent } from './features/room-tabs/room-tabs.component';
-import { MessagesComponent } from './features/messages/messages.component';
-import { TeamMembershipsComponent } from './features/team-memberships/team-memberships.component';
 
 export enum TokenEnum {
   xcssCode,
@@ -25,7 +21,7 @@ class TokenKlass {
   processToken(data, code){
     localStorage.setItem(TokenEnum.xcssCode.toString(), code);
     localStorage.setItem(TokenEnum.xcssToken.toString(), data.access_token);
-    localStorage.setItem(TokenEnum.xcssRefreshToken.toString(), data.refreshToken);
+    localStorage.setItem(TokenEnum.xcssRefreshToken.toString(), data.refresh_token);
     localStorage.setItem(TokenEnum.xcssTokenType.toString(), data.token_type);
   }
 
@@ -51,11 +47,7 @@ export function TokenFactory() {
     AppComponent,
     LoginComponent,
     RoomsComponent,
-    ConfirmDialogueComponent,
-    TeamsComponent,
-    RoomTabsComponent,
-    MessagesComponent,
-    TeamMembershipsComponent
+    ConfirmDialogueComponent
   ],
   entryComponents: [ConfirmDialogueComponent],
   imports: [

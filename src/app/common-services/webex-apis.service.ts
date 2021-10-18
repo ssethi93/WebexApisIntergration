@@ -11,7 +11,7 @@ export class WebexApisService {
   constructor(private http: HttpClient) { }
 
   getRoomsDetails(){
-    this.http.get(`${this.basePath}/rooms`);
+    return this.http.get(`${this.basePath}/rooms`);
   }
 
   createRoom() {
@@ -19,7 +19,7 @@ export class WebexApisService {
   }
 
   getRoomDetail(roomId){
-    this.http.get(`${this.basePath}/rooms/${roomId}`);
+    return this.http.get(`${this.basePath}/rooms/${roomId}`);
   }
 
   getMeetingRoomDetail(roomId){
@@ -36,5 +36,42 @@ export class WebexApisService {
 
   getTeams(){
     this.http.get(`${this.basePath}/teams`);
+  }
+
+  createTeams(){
+    this.http.post(`${this.basePath}/teams`,{});
+  }
+
+  getTeamDetails(teamId){
+    this.http.get(`${this.basePath}/teams/${teamId}`);
+  }
+
+  updateTeamDetails(teamId){
+    this.http.put(`${this.basePath}/teams/${teamId}`,{});
+  }
+
+  deleteTeamDetails(teamId){
+    this.http.delete(`${this.basePath}/teams/${teamId}`);
+  }
+
+  
+  getRoomsTabs(){
+    this.http.get(`${this.basePath}/room/tabs`);
+  }
+
+  createRoomTabs(){
+    this.http.post(`${this.basePath}/room/tabs`,{});
+  }
+
+  getRoomTabDetails(roomTabId){
+    this.http.get(`${this.basePath}/room/tabs/${roomTabId}`);
+  }
+
+  updateRoomTabDetails(roomTabId){
+    this.http.get(`${this.basePath}/room/tabs/${roomTabId}`,{});
+  }
+
+  deleteRoomTabDetails(roomTabId){
+    this.http.delete(`${this.basePath}/room/tabs/${roomTabId}`,{});
   }
 }
